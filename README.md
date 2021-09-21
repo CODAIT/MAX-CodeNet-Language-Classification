@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/IBM/[MODEL REPO NAME].svg?branch=master)](https://travis-ci.com/IBM/[MODEL REPO NAME]) [![Website Status](https://img.shields.io/website/http/codenet-lang-class.max.us-south.containers.appdomain.cloud/swagger.json.svg?label=api+demo)](http://codenet-lang-class.max.us-south.containers.appdomain.cloud/)
+<!-- [![Build Status](https://travis-ci.com/IBM/[MODEL REPO NAME].svg?branch=master)](https://travis-ci.com/IBM/[MODEL REPO NAME]) [![Website Status](https://img.shields.io/website/http/codenet-lang-class.max.us-south.containers.appdomain.cloud/swagger.json.svg?label=api+demo)](http://codenet-lang-class.max.us-south.containers.appdomain.cloud/) -->
 
 [<img src="docs/deploy-max-to-ibm-cloud-with-kubernetes-button.png" width="400px">](http://ibm.biz/max-to-ibm-cloud-tutorial)
 
