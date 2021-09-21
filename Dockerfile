@@ -20,7 +20,7 @@ FROM quay.io/codait/max-base:v1.4.0
 # ARG model_bucket=
 # ARG model_file=
 
-ARG use_pre_trained_model=true
+ARG use_pre_trained_model=false
 
 RUN if [ "$use_pre_trained_model" = "true" ] ; then\
      # download pre-trained model artifacts from Cloud Object Storage

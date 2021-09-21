@@ -39,18 +39,14 @@ def test_metadata():
     assert r.status_code == 200
 
     metadata = r.json()
-    assert metadata['id'] == 'ADD IN MODEL ID'
-    assert metadata['name'] == 'ADD MODEL NAME'
-    assert metadata['description'] == 'ADD MODEL DESCRIPTION'
-    assert metadata['license'] == 'ADD MODEL LICENSE'
 
 
 def test_response():
     model_endpoint = 'http://localhost:5000/model/predict'
-    file_path = 'samples/SAMPLE_FILE.jpg'
+    file_path = 'samples/s034703969.c'
 
     with open(file_path, 'rb') as file:
-        file_form = {'image': (file_path, file, 'image/jpeg')}
+        file_form = {'file': (file_path, file, 'file')}
         r = requests.post(url=model_endpoint, files=file_form)
 
     assert r.status_code == 200

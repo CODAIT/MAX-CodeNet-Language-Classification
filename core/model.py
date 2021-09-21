@@ -15,7 +15,9 @@
 #
 
 from maxfw.model import MAXModelWrapper
-
+import tensorflow as tf
+import numpy as np
+import core.utils as utils
 import logging
 from config import DEFAULT_MODEL_PATH
 
@@ -25,28 +27,31 @@ logger = logging.getLogger()
 class ModelWrapper(MAXModelWrapper):
 
     MODEL_META_DATA = {
-        'id': 'ID',
-        'name': 'MODEL NAME',
-        'description': 'DESCRIPTION',
-        'type': 'MODEL TYPE',
-        'source': 'MODEL SOURCE',
-        'license': 'LICENSE'
+        'id': 'None',
+        'name': 'CodeNet Language Classification',
+        'description': 'Simple convolutional deep neural network to classify snippets of code',
+        'languages': str(utils.langs),
+        'type': 'TensorFlow',
+        'source': 'IBM',
+        'license': 'Apache 2.0'
     }
 
     def __init__(self, path=DEFAULT_MODEL_PATH):
         logger.info('Loading model from: {}...'.format(path))
 
         # Load the graph
+        self.model = tf.keras.models.load_model(path)
 
         # Set up instance variables and required inputs for inference
-
         logger.info('Loaded model')
 
     def _pre_process(self, inp):
-        return inp
+        return utils.turn_file_to_vectors(inp)
 
-    def _post_process(self, result):
-        return result
+    def _post_process(self, preds):
+        return [utils.langs[np.argmax(preds)], np.max(preds)]
 
-    def _predict(self, x):
-        return x
+    def _predict(self, file_path):
+        vectors = self._pre_process(file_path)
+        preds = self.model.predict(np.array(vectors))
+        return self._post_process(preds)

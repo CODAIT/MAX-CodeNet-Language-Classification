@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: max-skeleton
+  name: max-codenet-lang-class
 spec:
   selector:
-    app: max-skeleton
+    app: max-codenet-lang-class
   ports:
   - port: 5000
   type: NodePort
@@ -12,21 +12,21 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: max-skeleton
+  name: max-codenet-lang-class
   labels:
-    app: max-skeleton
+    app: max-codenet-lang-class
 spec:
   selector:
     matchLabels:
-      app: max-skeleton
+      app: max-codenet-lang-class
   replicas: 1
   template:
     metadata:
       labels:
-        app: max-skeleton
+        app: max-codenet-lang-class
     spec:
       containers:
-      - name: max-skeleton
-        image: quay.io/codait/max-skeleton:latest
+      - name: max-codenet-lang-class
+        image: quay.io/codait/max-codenet-lang-class:latest
         ports:
         - containerPort: 5000
