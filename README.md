@@ -1,6 +1,6 @@
-<!-- [![Build Status](https://travis-ci.com/IBM/[MODEL REPO NAME].svg?branch=master)](https://travis-ci.com/IBM/[MODEL REPO NAME]) [![Website Status](https://img.shields.io/website/http/codenet-lang-class.max.us-south.containers.appdomain.cloud/swagger.json.svg?label=api+demo)](http://codenet-lang-class.max.us-south.containers.appdomain.cloud/) -->
+<!-- [![Build Status](https://travis-ci.com/IBM/[MODEL REPO NAME].svg?branch=master)](https://travis-ci.com/IBM/[MODEL REPO NAME]) [![Website Status](https://img.shields.io/website/http/codenet-language-classifier.max.us-south.containers.appdomain.cloud/swagger.json.svg?label=api+demo)](http://codenet-language-classifier.max.us-south.containers.appdomain.cloud/) -->
 
-[<img src="docs/deploy-max-to-ibm-cloud-with-kubernetes-button.png" width="400px">](http://ibm.biz/max-to-ibm-cloud-tutorial)
+<!-- [<img src="docs/deploy-max-to-ibm-cloud-with-kubernetes-button.png" width="400px">](http://ibm.biz/max-to-ibm-cloud-tutorial) -->
 
 # IBM Developer Model Asset Exchange: CodeNet Language Classification
 
@@ -49,7 +49,7 @@ as part of the [IBM Developer Model Asset Exchange](https://developer.ibm.com/ex
 To run the docker image, which automatically starts the model serving API, run:
 
 ```
-$ docker run -it -p 5000:5000 quay.io/codait/codenet-lang-class
+$ docker run -it -p 5000:5000 quay.io/codait/codenet-language-classifier
 ```
 
 This will pull a pre-built image from the Quay.io container registry (or use an existing image if already cached locally) and run it.
@@ -57,7 +57,7 @@ If you'd rather checkout and build the model locally you can follow the [run loc
 
 ## Deploy on Red Hat OpenShift
 
-You can deploy the model-serving microservice on Red Hat OpenShift by following the instructions for the OpenShift web console or the OpenShift Container Platform CLI [in this tutorial](https://developer.ibm.com/tutorials/deploy-a-model-asset-exchange-microservice-on-red-hat-openshift/), specifying `quay.io/codait/codenet-lang-class` as the image name.
+You can deploy the model-serving microservice on Red Hat OpenShift by following the instructions for the OpenShift web console or the OpenShift Container Platform CLI [in this tutorial](https://developer.ibm.com/tutorials/deploy-a-model-asset-exchange-microservice-on-red-hat-openshift/), specifying `quay.io/codait/codenet-language-classifier` as the image name.
 
 ## Deploy on Kubernetes
 
@@ -66,7 +66,7 @@ You can also deploy the model on Kubernetes using the latest docker image on Qua
 On your Kubernetes cluster, run the following commands:
 
 ```
-$ kubectl apply -f https://github.ibm.com/CODAIT/[MODEL REPO NAME]/raw/master/codenet-lang-class.yaml
+$ kubectl apply -f https://github.com/CODAIT/MAX-CodeNet-Language-Classification/raw/main/codenet-language-classifier.yaml
 ```
 
 The model will be available internally at port `5000`, but can also be accessed externally through the `NodePort`.
@@ -87,19 +87,19 @@ A more elaborate tutorial on how to deploy this MAX model to production on [IBM 
 Clone this repository locally. In a terminal, run the following command:
 
 ```
-$ git clone https://github.ibm.com/CODAIT/[MODEL REPO NAME].git
+$ git clone https://github.com/CODAIT/MAX-CodeNet-Language-Classification.git
 ```
 
 Change directory into the repository base folder:
 
 ```
-$ cd [MODEL REPO NAME]
+$ cd MAX-CodeNet-Language-Classification
 ```
 
 To build the docker image locally, run: 
 
 ```
-$ docker build -t codenet-lang-class .
+$ docker build -t codenet-language-classifier .
 ```
 
 All required model assets will be downloaded during the build process. _Note_ that currently this docker image is CPU only (we will add support for GPU images later).
@@ -110,7 +110,7 @@ All required model assets will be downloaded during the build process. _Note_ th
 To run the docker image, which automatically starts the model serving API, run:
 
 ```
-$ docker run -it -p 5000:5000 codenet-lang-class
+$ docker run -it -p 5000:5000 codenet-language-classifier
 ```
 
 ### 3. Use the Model
