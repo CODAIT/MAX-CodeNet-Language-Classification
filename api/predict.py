@@ -54,7 +54,7 @@ class ModelPredictAPI(PredictAPI):
         preds = self.model_wrapper._predict(os.path.abspath(args['file'].filename))
 
         # Modify this code if the schema is changed
-        label_preds = [{'language': preds[0], 'probability': preds[1]}]
+        label_preds = [{'language': p[0], 'probability': p[1]} for p in preds]
         result['predictions'] = label_preds
         result['status'] = 'ok'
 

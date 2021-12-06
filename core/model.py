@@ -49,7 +49,9 @@ class ModelWrapper(MAXModelWrapper):
         return utils.turn_file_to_vectors(inp)
 
     def _post_process(self, preds):
-        return [utils.langs[np.argmax(preds)], np.max(preds)]
+        n = 3
+        indices = (-preds).argsort()[0][:n]
+        return [(utils.langs[i], preds[0][i]) for i in indices]
 
     def _predict(self, file_path):
         vectors = self._pre_process(file_path)
